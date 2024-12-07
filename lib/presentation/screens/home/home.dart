@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/presentation/screens/tabs/browse/browse.dart';
-import 'package:movies_app/presentation/screens/tabs/home_tab/home_tab.dart';
 import 'package:movies_app/presentation/screens/tabs/search/search_tab.dart';
 import 'package:movies_app/presentation/screens/tabs/watch_list/watch_list.dart';
+
+import '../tabs/home_tab/home_screen/home_screen.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabs = [HomeTab(), const Search(), const Browse(), const WatchList()];
+    tabs = [HomeScreen(), const Search(), const Browse(), const WatchList()];
   }
 
   @override
