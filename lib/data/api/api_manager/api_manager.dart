@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:movies_app/data/api/model/popular_response/popular_response.dart';
 import 'package:movies_app/data/api/model/top_rated_response/top_rated_response.dart';
@@ -44,4 +43,10 @@ class ApiManager {
     UpcomingResponse upcomingResponse = UpcomingResponse.fromJson(json);
     return upcomingResponse;
   }
+ //ToDo  this is for the search and catagory
+
+
+
+
+
 }
