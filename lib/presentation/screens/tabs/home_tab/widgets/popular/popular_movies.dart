@@ -5,7 +5,7 @@ import 'package:movies_app/core/utils/colors_manager.dart';
 import '../../../../../../data/api/model/popular_response/result.dart';
 
 class PopularMovies extends StatelessWidget {
-  PopularMovies({super.key, required this.result});
+  PopularMovies({super.key, required this.result,});
 
   Result result;
 
@@ -16,15 +16,15 @@ class PopularMovies extends StatelessWidget {
     return Stack(
       children: [
         Stack(alignment: Alignment.center, children: [
-          CachedNetworkImage(
-            width: double.infinity,
-            height: 217,
-            imageUrl: baseUrl + result.backdropPath!,
-            placeholder: (context, url) =>
-                Center(child: CircularProgressIndicator()),
-            errorWidget: (context, url, error) =>
-                Center(child: Icon(Icons.error)),
-          ),
+        CachedNetworkImage(
+          width: double.infinity,
+          height: 217,
+          imageUrl: baseUrl + result.backdropPath!,
+          placeholder: (context, url) =>
+              Center(child: CircularProgressIndicator()),
+          errorWidget: (context, url, error) =>
+              Center(child: Icon(Icons.error)),
+        ),
           Icon(
             Icons.play_circle_filled,
             size: 60,

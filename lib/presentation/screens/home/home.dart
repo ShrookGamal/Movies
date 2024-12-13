@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabs = [HomeScreen(), const Search(), const Browse(), const WatchList()];
+    tabs = [HomeScreen(), const SearchScreen(), BrowseCategoryScreen(), const WatchList()];
   }
 
   @override
