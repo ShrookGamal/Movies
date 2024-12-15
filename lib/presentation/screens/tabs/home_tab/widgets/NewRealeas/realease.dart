@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/core/utils/fonts_manager.dart';
+import 'package:movies_app/core/utils/routes_manager.dart';
 import 'package:movies_app/data/api/api_manager/api_manager.dart';
 import 'package:movies_app/data/api/model/popular_response/result.dart';
-import 'package:movies_app/presentation/screens/tabs/home_tab/widgets/NewRealeas/Realse_movie.dart';
-
+import 'package:movies_app/presentation/screens/tabs/home_tab/widgets/NewRealeas/realse_movie.dart';
 
 class ReleaseCheck extends StatelessWidget {
   const ReleaseCheck({super.key});
@@ -28,34 +28,39 @@ class ReleaseCheck extends StatelessWidget {
             ),
           );
         }
-        List<Object> result = snapshot.data?.results ?? [];
-
-        // Assuming `results` contains a list of movie objects
-
-        return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        List<Result> result = snapshot.data?.results ?? [];
+        return Container(
+          color: ColorsManager.blackGray,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Text(
-        "New Releases",
-        style:AppStyle.NewRealse,
-
-        ),
-        ),
-        SizedBox(
-          height: 200.h,
-          child: ListView.builder(
+              Padding(
+                padding: REdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Text(
+                  "New Releases",
+                  style: AppStyle.newRealse,
+                ),
+              ),
+              SizedBox(
+                height: 150.h,
+                child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: result.length,
           itemBuilder: ( BuildContext context,int  index) {
-          return RealseMovie(result: result[index]  as Result);
-          },
+                    return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, RoutesManager.movieDetails,
+                              arguments: result[index]);
+                        },
+                        child: RealseMovie(result: result[index]));
+                  },
           ),
-        ),
-        ],
+              )
+            ],
+          ),
         );
-        },
+      },
 
     );
 
