@@ -1,75 +1,99 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/utils/colors_manager.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/utils/assets_manager.dart';
+import 'package:movies_app/core/utils/fonts_manager.dart';
 
 import '../../../../../../data/api/model/popular_response/result.dart';
 
-class PopularMovies extends StatelessWidget {
+class PopularMovies extends StatefulWidget {
   PopularMovies({super.key, required this.result,});
 
   Result result;
 
-  String baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  @override
+  State<PopularMovies> createState() => _PopularMoviesState();
+}
 
+class _PopularMoviesState extends State<PopularMovies> {
+  String baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  bool favorate = false;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Stack(alignment: Alignment.center, children: [
-        CachedNetworkImage(
-          width: double.infinity,
-          height: 217,
-          imageUrl: baseUrl + result.backdropPath!,
-          placeholder: (context, url) =>
-              Center(child: CircularProgressIndicator()),
-          errorWidget: (context, url, error) =>
-              Center(child: Icon(Icons.error)),
-        ),
-          Icon(
+          CachedNetworkImage(
+            width: double.infinity,
+            height: 217,
+            imageUrl: baseUrl + widget.result.backdropPath!,
+            placeholder: (context, url) =>
+                const Center(child: CircularProgressIndicator()),
+            errorWidget: (context, url, error) =>
+                Center(child: Icon(Icons.error)),
+          ),
+          const Icon(
             Icons.play_circle_filled,
             size: 60,
             color: Colors.white,
-          ),
+          )
         ]),
         Positioned(
-          top: 120,
-          left: 5,
+          top: 100,
+          left: 10,
           child: Row(
             children: [
-              Container(
-                  width: 110,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(baseUrl + result.posterPath!),
-                      fit: BoxFit.cover,
-                    ),
-                  )),
+              Stack(alignment: Alignment.topLeft, children: [
+                Container(
+                    width: 129.w,
+                    height: 150.h,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image:
+                            NetworkImage(baseUrl + widget.result.posterPath!),
+                        fit: BoxFit.cover,
+                      ),
+                    )),
+                InkWell(
+                    onTap: onTap,
+                    child: favorate
+                        ? Image.asset(AssetsManager.doneMark)
+                        : Image.asset(AssetsManager.addMark))
+              ]),
               SizedBox(
                 width: 10,
               ),
-              Column(
-                children: [
-                  Text(
-                    result.title ?? '',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Colors.white),
+              Padding(
+                padding: REdgeInsets.only(top: 100),
+                child: Container(
+                  width: 192.w,
+                  child: Column(
+                    children: [
+                      Text(
+                        widget.result.title ?? '',
+                        style: AppStyle.popular,
+                        maxLines: 3,
+                      ),
+                      SizedBox(
+                        height: 10.sp,
+                      ),
+                      Text(
+                        widget.result.releaseDate ?? '',
+                        style: AppStyle.date,
+                      )
+                    ],
                   ),
-                  Text(
-                    result.releaseDate ?? '',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 10,
-                        color: ColorsManager.gray),
-                  )
-                ],
+                ),
               ),
             ],
           ),
         ),
       ],
     );
+  }
+
+  onTap() {
+    favorate = true;
+    setState(() {});
   }
 }

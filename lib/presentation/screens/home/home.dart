@@ -17,7 +17,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int currentIndex = 0;
   List<Widget> tabs = [];
-
   @override
   void initState() {
     // TODO: implement initState

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/core/utils/fonts_manager.dart';
 import 'package:movies_app/data/api/api_manager/api_manager.dart';
-import 'package:movies_app/data/api/model/popular_response/result.dart';
 import 'package:movies_app/data/api/model/top_rated_response/results.dart';
-import 'package:movies_app/presentation/screens/tabs/home_tab/widgets/NewRealeas/Realse_movie.dart';
 import 'package:movies_app/presentation/screens/tabs/home_tab/widgets/Recomended/recomended_movie.dart';
-
 
 class RecomendedCheck extends StatelessWidget {
   const RecomendedCheck({super.key});
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -28,32 +26,31 @@ class RecomendedCheck extends StatelessWidget {
             ),
           );
         }
-        //List<Result> result = snapshot.data?.results ?? [];
-        List<Object> result = snapshot.data?.results ?? [];
-        // Assuming `results` contains a list of movie objects
-
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Text(
-                "Recommended",
-                style:AppStyle.ReCommend,
-
+        List<Results> result = snapshot.data?.results ?? [];
+        return Container(
+          color: ColorsManager.blackGray,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: REdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                child: Text(
+                  "Recommended",
+                  style: AppStyle.recommend,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 150, // Set the height of the list
-              child:ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: result.length,
-                itemBuilder: ( BuildContext context,int  index) {
-                  return ReCommendMovie(result: result[index]  as Result);
-                },
+              SizedBox(
+                height: 180, // Set the height of the list
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: result.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return RecommendMovie(result: result[index]);
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
 
