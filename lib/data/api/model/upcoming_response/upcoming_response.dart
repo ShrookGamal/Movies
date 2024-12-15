@@ -35,7 +35,6 @@ class UpcomingResponse {
   num? totalPages;
   num? totalResults;
   num? code;
-
   String? massage;
   bool? success;
 
