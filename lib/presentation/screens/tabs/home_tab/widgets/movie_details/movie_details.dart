@@ -59,13 +59,19 @@ class _MovieDetailsState extends State<MovieDetails> {
                   )
                 ],
               ),
+              SizedBox(
+                height: 10.h,
+              ),
               Text(widget.result.title ?? '', style: AppStyle.movieTitle),
+              SizedBox(
+                height: 5.h,
+              ),
               Text(
-                widget.result.releaseDate ?? '',
+                DateTime.parse(widget.result.releaseDate ?? '').year.toString(),
                 style: AppStyle.date,
               ),
               SizedBox(
-                height: 5.h,
+                height: 20.h,
               ),
               Row(
                 children: [
@@ -123,7 +129,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                 ],
               ),
               SizedBox(
-                height: 15.h,
+                height: 25.h,
               ),
               Similar(id: widget.result.id.toString())
             ],

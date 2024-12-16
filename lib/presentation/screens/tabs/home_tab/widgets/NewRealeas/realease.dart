@@ -42,7 +42,7 @@ class ReleaseCheck extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 150.h,
+                height: 180.h,
                 child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: result.length,

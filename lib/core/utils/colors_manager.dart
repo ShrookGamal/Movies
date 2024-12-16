@@ -7,4 +7,5 @@ class ColorsManager {
   static const grayAccent = Color(0xFF343534);
   static const blackGray = Color(0xFF282A28);
   static const blackAccent = Color(0xFF1D1E1D);
+  static const scaffoldBg = Color(0xFF121312);
 }

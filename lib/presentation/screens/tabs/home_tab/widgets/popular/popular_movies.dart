@@ -25,7 +25,7 @@ class _PopularMoviesState extends State<PopularMovies> {
         Stack(alignment: Alignment.center, children: [
           CachedNetworkImage(
             width: double.infinity,
-            height: 217,
+            height: 217.h,
             imageUrl: baseUrl + widget.result.backdropPath!,
             placeholder: (context, url) =>
                 const Center(child: CircularProgressIndicator()),
@@ -40,13 +40,13 @@ class _PopularMoviesState extends State<PopularMovies> {
         ]),
         Positioned(
           top: 100,
-          left: 10,
+          left: 21,
           child: Row(
             children: [
               Stack(alignment: Alignment.topLeft, children: [
                 Container(
                     width: 129.w,
-                    height: 150.h,
+                    height: 199.h,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image:
@@ -78,7 +78,9 @@ class _PopularMoviesState extends State<PopularMovies> {
                         height: 10.sp,
                       ),
                       Text(
-                        widget.result.releaseDate ?? '',
+                        DateTime.parse(widget.result.releaseDate ?? '')
+                            .year
+                            .toString(),
                         style: AppStyle.date,
                       )
                     ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/presentation/screens/tabs/home_tab/widgets/Recomended/recomended.dart';
 import 'package:movies_app/presentation/screens/tabs/home_tab/widgets/popular/popular.dart';
 
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsManager.scaffoldBg,
       body: Padding(
         padding: REdgeInsets.only(top: 20),
         child: SingleChildScrollView(
