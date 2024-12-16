@@ -34,7 +34,7 @@ class Popular extends StatelessWidget {
                     },
                     child: PopularMovies(result: result[index])),
             options: CarouselOptions(
-              height: 240.h,
+              height: 289.h,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
               enlargeCenterPage: true,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../data/api/api_manager/api_manager.dart';
+
 import '../../../../data/api/api_manager/api_manager_srearch_discover.dart';
 import '../../../../data/api/model/Catagory_response/Genres.dart';
 import 'catagory_card.dart';
@@ -37,8 +37,8 @@ class BrowseCategoryScreen extends StatelessWidget {
             ),
             itemCount: genres.length,
             itemBuilder: (context, index) {
-              final genre = genres[index];
-              return CategoryCard(genre: genre);
+              // final genre = genres[index];
+              return CategoryCard(genre: genres[index]);
             },
           ),
         );

@@ -33,14 +33,13 @@ class _RecommendMovieState extends State<RecommendMovie> {
               color: ColorsManager.grayAccent,
               borderRadius: BorderRadius.circular(5),
             ),
-            height: 150.h, // Adjust height as needed
-            width: 97.w,
+            height: 220.h, // Adjust height as needed
+            width: 110.w,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   width: double.infinity,
-                  height: 120.h,
+                  height: 127.7.h,
                   child: CachedNetworkImage(
                     imageUrl: widget.result.posterPath != null
                         ? RecommendMovie.baseUrl + widget.result.posterPath!
@@ -53,7 +52,7 @@ class _RecommendMovieState extends State<RecommendMovie> {
                   ),
                 ),
                 SizedBox(
-                  height: 1.h,
+                  height: 5.h,
                 ),
                 Row(
                   children: [
@@ -70,7 +69,18 @@ class _RecommendMovieState extends State<RecommendMovie> {
                       style: AppStyle.rate,
                     ),
                   ],
+                ),
+                Text(
+                  widget.result.title ?? '',
+                  style: AppStyle.rate,
+                ),
+                Text(
+                  DateTime.parse(widget.result.releaseDate ?? '')
+                      .year
+                      .toString(),
+                  style: AppStyle.date,
                 )
+
                 /*const SizedBox(height: 8),
                   Text(
                     result.title ?? 'Unknown Title', // Fallback title

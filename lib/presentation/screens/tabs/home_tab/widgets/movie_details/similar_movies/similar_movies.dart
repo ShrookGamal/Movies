@@ -30,15 +30,15 @@ class _SimilarMoviesState extends State<SimilarMovies> {
               color: ColorsManager.grayAccent,
               borderRadius: BorderRadius.circular(5),
             ),
-            height: 150.h, // Adjust height as needed
-            width: 97.w,
+            height: 240.h, // Adjust height as needed
+            width: 110.w,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Stack(alignment: Alignment.topLeft, children: [
                   Container(
-                      width: 129.w,
-                      height: 122.h,
+                      width: double.infinity,
+                      height: 127.7.h,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(SimilarMovies.baseUrl +
@@ -53,7 +53,7 @@ class _SimilarMoviesState extends State<SimilarMovies> {
                           : Image.asset(AssetsManager.addMark))
                 ]),
                 SizedBox(
-                  height: 1.h,
+                  height: 5.h,
                 ),
                 Row(
                   children: [
@@ -63,13 +63,29 @@ class _SimilarMoviesState extends State<SimilarMovies> {
                       size: 15.sp,
                     ),
                     SizedBox(
-                      width: 5.w,
+                      width: 10.w,
                     ),
                     Text(
                       widget.results.voteAverage.toString(),
                       style: AppStyle.rate,
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Text(
+                  widget.results.title ?? '',
+                  style: AppStyle.rate,
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Text(
+                  DateTime.parse(widget.results.releaseDate ?? '')
+                      .year
+                      .toString(),
+                  style: AppStyle.date,
                 )
               ],
             ),
