@@ -2,7 +2,10 @@ import 'Results.dart';
 
 class MovieResponse {
   MovieResponse({
-      this.page, 
+    this.success,
+    this.code,
+    this.massage,
+    this.page,
       this.results, 
       this.totalPages, 
       this.totalResults,});
@@ -17,12 +20,17 @@ class MovieResponse {
     }
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
+    success = json['success'];
+    code = json['status_code'];
+    massage = json['status_message'];
   }
   num? page;
   List<Results>? results;
   num? totalPages;
   num? totalResults;
-
+  num? code;
+  String? massage;
+  bool? success;
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['page'] = page;

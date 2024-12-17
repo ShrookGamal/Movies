@@ -42,7 +42,8 @@ class _SimilarMoviesState extends State<SimilarMovies> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(SimilarMovies.baseUrl +
-                              widget.results.posterPath!),
+                              (widget.results.posterPath ??
+                                  AssetsManager.placeHolder)),
                           fit: BoxFit.cover,
                         ),
                       )),

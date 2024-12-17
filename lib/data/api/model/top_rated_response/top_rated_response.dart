@@ -31,7 +31,6 @@ class TopRatedResponse {
   num? totalPages;
   num? totalResults;
   num? code;
-
   String? massage;
   bool? success;
 

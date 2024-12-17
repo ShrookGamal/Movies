@@ -15,11 +15,13 @@ class AppStyle{
     color: Colors.white,
   );
   static final TextStyle popular = GoogleFonts.inter(
+    decoration: TextDecoration.none,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: Colors.white,
   );
   static final TextStyle date = GoogleFonts.inter(
+    decoration: TextDecoration.none,
     fontSize: 10,
     fontWeight: FontWeight.w400,
     color: ColorsManager.gray,
@@ -36,7 +38,7 @@ class AppStyle{
   );
   static final TextStyle appBarTitle = GoogleFonts.inter(
     fontSize: 20,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.bold,
     color: Colors.white,
   );
   static final TextStyle movieTitle = GoogleFonts.inter(
@@ -48,5 +50,10 @@ class AppStyle{
     fontSize: 13,
     fontWeight: FontWeight.w400,
     color: ColorsManager.gray,
+  );
+  static final TextStyle browseCategory = GoogleFonts.inter(
+    fontSize: 22,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
   );
 }
