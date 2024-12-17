@@ -31,7 +31,7 @@ class _RealseMovieState extends State<RealseMovie> {
           Stack(
             children: [
               Container(
-                height: 127.7.h,
+                height: 140.h,
                 // Adjust height as needed
                 width: 96.8.w,
                 // Adjust width as needed
@@ -58,16 +58,6 @@ class _RealseMovieState extends State<RealseMovie> {
                       : Image.asset(AssetsManager.addMark))
             ],
           ),
-          /*Text(
-              result.title ?? 'Unknown Title', // Fallback title
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),*/
         ],
       ),
     );

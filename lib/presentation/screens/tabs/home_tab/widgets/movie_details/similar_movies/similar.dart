@@ -33,14 +33,14 @@ class Similar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding: REdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Text(
                     "More Like This",
                     style: AppStyle.recommend,
                   ),
                 ),
                 SizedBox(
-                  height: 180, // Set the height of the list
+                  height: 240, // Set the height of the list
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: results.length,

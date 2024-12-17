@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/utils/colors_manager.dart';
 
 class WatchList extends StatelessWidget {
   const WatchList({super.key});
@@ -6,7 +7,7 @@ class WatchList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: ColorsManager.scaffoldBg,
     );
   }
 }

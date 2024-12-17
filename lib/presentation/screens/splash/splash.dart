@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 import 'package:movies_app/core/utils/routes_manager.dart';
 
+import '../../../core/utils/colors_manager.dart';
+
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -25,7 +27,7 @@ class _SplashState extends State<Splash> {
       alignment: Alignment.center,
       children: [
         Container(
-          color: Colors.black,
+          color: ColorsManager.scaffoldBg,
           width: double.infinity,
           height: double.infinity,
         ),
