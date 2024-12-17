@@ -81,8 +81,9 @@ class _MovieDetailsState extends State<MovieDetails> {
                         height: 199.h,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                baseUrl + widget.result.posterPath!),
+                            image: NetworkImage(baseUrl +
+                                (widget.result.posterPath ??
+                                    AssetsManager.placeHolder)),
                             fit: BoxFit.cover,
                           ),
                         )),

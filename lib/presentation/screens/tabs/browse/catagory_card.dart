@@ -15,12 +15,12 @@ class CategoryCard extends StatelessWidget {
         Container(
           decoration:
           BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.circular(8.0),
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(8.0),
           ),
             child: Image.asset(
               getImage(genre.name),
-              fit: BoxFit.cover,
+              width: double.infinity,
             )
             /*CachedNetworkImage(
             width: double.infinity,
@@ -36,7 +36,7 @@ class CategoryCard extends StatelessWidget {
             ),
         Container(
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.4),
             borderRadius: BorderRadius.circular(8.0),
           ),
           alignment: Alignment.center,

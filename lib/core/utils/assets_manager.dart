@@ -24,4 +24,5 @@ class AssetsManager {
   static const String tvPoster = '${base}tv_poster.png';
   static const String warPoster = '${base}war_poster.png';
   static const String westernPoster = '${base}western_poster.png';
+  static const String placeHolder = '${base}placeholder_image.png';
 }
